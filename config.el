@@ -21,10 +21,17 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Maple Mono Normal NL NF CN" :size 26 :weight 'semi-light))
+(when (eq system-type 'windows-nt)
+  (setq doom-font (font-spec :family "Maple Mono Normal NL NF CN"
+                             :size 24
+                             :weight 'semi-light))
+  (setq wttrin-font-name "Maple Mono Normal NL NF CN"))
 
-
-
+(when (eq system-type 'gnu/linux)
+  (setq doom-font (font-spec :family "Maple Mono"
+                             :size 16
+                             :weight 'semi-light))
+  (setq wttrin-font-name "Maple Mono"))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -118,18 +125,18 @@
 (setq +doom-dashboard-ascii-banner-fn #'my-weebery-is-always-greater)
 
 (after! dape
-        (add-to-list 'dape-configs
-                `(debugpy modes (python-mode python-ts-mode)
-                        port 5678
-                        command "python"
-                        command-args ("-m" "debugpy.adapter" "--host" "0.0.0.0" "--port" :autoport)
-                        :cwd dape-cwd
-                        :program dape-buffer-default
-                        :args []
-                        :justMyCode nil
-                        :console "integratedTerminal"
-                        :showReturnValue t
-                        :stopOnEntry nil)))
+  (add-to-list 'dape-configs
+               `(debugpy modes (python-mode python-ts-mode)
+                 port 5678
+                 command "python"
+                 command-args ("-m" "debugpy.adapter" "--host" "0.0.0.0" "--port" :autoport)
+                 :cwd dape-cwd
+                 :program dape-buffer-default
+                 :args []
+                 :justMyCode nil
+                 :console "integratedTerminal"
+                 :showReturnValue t
+                 :stopOnEntry nil)))
 
 (after! magit
   (setq magit-diff-refine-hunk 'all))
@@ -150,12 +157,11 @@
   (setq nyan-wavy-trail t))
 
 (setq wttrin-default-locations
-      '("Los Angeles, CA"            ;; City and State (to disambiguate)
+      '("Los Angeles, CA"
         "Tokyo"
-        "Houston"))           ;; GPS Coordinates for Rome
+        "Houston"))
 
 (setq wttrin-unit-system "m") ;; for Metric units
-(setq wttrin-font-name "Maple Mono Normal NL NF CN")
 
 (map! :leader
       :prefix "o"
