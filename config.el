@@ -21,7 +21,10 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Maple Mono Normal NL NF CN" :size 24 :weight 'semi-light))
+(setq doom-font (font-spec :family "Maple Mono Normal NL NF CN" :size 26 :weight 'semi-light))
+
+
+
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -145,3 +148,15 @@
 
 (after! nyan-mode
   (setq nyan-wavy-trail t))
+
+(setq wttrin-default-locations
+      '("Los Angeles, CA"            ;; City and State (to disambiguate)
+        "Tokyo"
+        "Houston"))           ;; GPS Coordinates for Rome
+
+(setq wttrin-unit-system "m") ;; for Metric units
+(setq wttrin-font-name "Maple Mono Normal NL NF CN")
+
+(map! :leader
+      :prefix "o"
+      :desc "Weather" "w" #'wttrin)
