@@ -54,3 +54,6 @@
 (package! wttrin)
 (package! pdf-tools)
 (package! web-beautify)
+(package! vundo)
+(package! nyan-mode)
+
