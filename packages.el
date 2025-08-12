@@ -51,8 +51,6 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 (package! org-super-agenda)
 (package! wttrin)
-(package! pdf-tools)
-(package! web-beautify)
 (package! vundo)
 (package! nyan-mode)
 
