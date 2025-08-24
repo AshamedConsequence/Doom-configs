@@ -9,4 +9,3 @@ my elisp sucks.
 ``` sh
 git clone git@github.com:AshamedConsequence/Doom-configs.git ~/.config/emacs/doom
 ```
-
