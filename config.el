@@ -25,7 +25,9 @@
   (setq doom-font (font-spec :family "Maple Mono Normal NL NF CN"
                              :size 24
                              :weight 'semi-light))
-  (setq wttrin-font-name "Maple Mono Normal NL NF CN"))
+  (setq wttrin-font-name "Maple Mono Normal NL NF CN")
+
+  )
 
 (when (eq system-type 'gnu/linux)
   (setq doom-font (font-spec :family "Maple Mono"
@@ -144,10 +146,6 @@
 
 ;; Set background opacity to 85% for the current frame
 ;;
-(set-frame-parameter nil 'alpha-background 85)
-
-;; Set background opacity for all future frames
-(add-to-list 'default-frame-alist '(alpha-background . 85))
 (use-package! nyan-mode
   :config
   (nyan-mode)
