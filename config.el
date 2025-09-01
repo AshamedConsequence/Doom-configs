@@ -144,8 +144,6 @@
   (setq magit-diff-refine-hunk 'all))
 (setq dired-listing-switches "-aBhl  --group-directories-first")
 
-;; Set background opacity to 85% for the current frame
-;;
 (use-package! nyan-mode
   :config
   (nyan-mode)
